@@ -89,7 +89,7 @@ Type at your shell:
 ```
   $ q.status
 ```
-      ... this shows you that QUAD is running!
+      ... this shows you that QUAD is running, and its version.
 
 Also, if you are unsure of a command or want to know if it even has the syntax you
 want, or if you remember only partial information on what you're trying to do,
@@ -98,7 +98,6 @@ such as:
 
 ```
 $ q.help q.net.set
-```
 
 --------------------------------------------------------------------
 [MODULE: NET]	q.net.ssh
@@ -107,8 +106,12 @@ $ q.help q.net.set
 [MODULE: NET]	q.net.set.networkbits
 		Sets the working network portion for easy ssh accesses.
 --------------------------------------------------------------------
+```
 
-You can even further by dumping the actual code using:
+You can even go further by dumping the actual code
+(for instance, before running), using q.dump
+
+### EXAMPLE: Using q.dump to see underlying code
 ```
 $ q.dump q.net.set.networkbits
 ```
@@ -123,14 +126,14 @@ q.net.set.networkbits ()
 }
 ```
 
-### EXAMPLE 1: Easily hash files in your directory for MD5 comparison
-(ex: see if it has changed)
+### EXAMPLE: Easily hash files in any directory for easy MD5 comparison
+
 ```
-  $ q.app.password-generator 24
+  $ q.app.md5sum-all-files
   ```
 
 
-### EXAMPLE 2: Easily generating a password with 24 random characters
+### EXAMPLE: Easily generating a password with 24 random characters
 ```
   $ q.app.password-generator 24
   ```

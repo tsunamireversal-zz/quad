@@ -11,6 +11,12 @@ alias q.vi='vim -N'
 alias q.lsl='ls -altr'
 alias q.hc="history -c"
 alias q.dump="type"
+alias q.gitclonerepo="git clone git@github.com:tsunamireversal/quad.git"
+alias q.clonerepo="q.gitclonerepo"
+
+###############################################################################
+# SYSTEM ALIASES
+###############################################################################
 alias q.sys.lsof='q.checkbin lsof && echo "Listing open files on the system" ; lsof'
 alias q.sys.tcpdump='q.checkbin tcpdump && tcpdump'
 alias q.sys.service='q.checkbin service && service'

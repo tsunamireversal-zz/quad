@@ -71,9 +71,10 @@ operating system.
 ## UPGRADING
 just update the repo using:
 ```
-  $ cd ~/quad && git pull     <---> (or download the repo again on github)
-
+  $ cd ~/quad && git pull && q   <---> (or download the repo again on github)
 ```
+NOTE: q command in the end will reload quad with new features.
+
 ## USAGE
 
 [Remember: Do not type the dollar sign ($) below, it is there by default]
@@ -174,13 +175,15 @@ When loading your .bash_profile, QUAD will load hundreds of aliases and
 functions that become available to you right away. It shouldn't take more than
 1-2 seconds to load, even on poor performance hardware.
 
-The incubator branch is for development, and the release branch is for
-official releases. Always use the official release if in any doubt.
+On github, the incubator branch is for development and PR, and the release
+branch is for official releases.
+
 
 ## FUTURE EFFORTS
-I will continue working on this project and add many more new features
-into it. If you use it, find it useful and interesting, please drop me a line at
-<quad> <at> <impossible3d< <dot> <com> with your feedback!
+I wish to continue working on this project and add many more new features
+into it. If you use it, find it useful and interesting, have an idea and want to
+contribute, please drop me a line at quad at impossible3d dot com
+with your feedback!
 
 ## CONTRIBUTE
 You can contribute to QUAD by submitting your ideas/knowledge you would like it
@@ -196,13 +199,13 @@ above address.
 PLEASE check the LICENSE file for details. But, in a nutshell:
 
 ### Permissions:
-  Commercial use
-  Distribution
-  Modification
-  Private use
+  - Private use
+  - Commercial use
+  - Distribution
+  - Modification
 
 ### Conditions:
-  License and copyright notice
+  - MIT License must be included in subsequent work.
 
 ### Limitations:
   No Liability

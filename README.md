@@ -1,7 +1,7 @@
 # QUAD : [Q]uery [U]tility for [A]ccelerated [D]evelopment
 
 ## QUAD has four purposes:
-- Inject knowledge into the shell, available instantly
+- Inject knowledge into the Linux shell, available instantly
 - Provide quick access to hundreds of oneliners you can expand on
 - Centralize commands to help anyone learn about them
 - Improve productivity using the Linux shell daily
@@ -71,7 +71,8 @@ operating system.
 ## UPGRADING
 just update the repo using:
 ```
-  $ git pull     <---> (or download the repo again on github)
+  $ cd ~/quad && git pull     <---> (or download the repo again on github)
+
 ```
 ## USAGE
 
@@ -137,9 +138,9 @@ q.net.set.networkbits ()
 ```
   $ q.app.password-generator 24
   ```
-### TO DUMP THE CODE:
+### TO DUMP THE ACTUAL CODE OF A QUAD FUNCTION:
     ```
-    $ type q.dump q.app.password-generator
+    $ q.dump q.app.password-generator
     ...is a function
       dd if=/dev/urandom bs=1 count=$1 2> /dev/null | base64 -w 0 | rev | cut -b 2- | rev | sed 's/+/p/'
       ```
@@ -172,6 +173,9 @@ at https://www.ubuntu.org
 When loading your .bash_profile, QUAD will load hundreds of aliases and
 functions that become available to you right away. It shouldn't take more than
 1-2 seconds to load, even on poor performance hardware.
+
+The incubator branch is for development, and the release branch is for
+official releases. Always use the official release if in any doubt.
 
 ## FUTURE EFFORTS
 I will continue working on this project and add many more new features

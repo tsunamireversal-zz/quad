@@ -1,0 +1,52 @@
+###############################################################################
+# KUBERNETES SPECIFIC
+###############################################################################
+
+alias q.virt.kubernetes.get.pods="q.checkbin kubectl && kubectl get pods"
+alias q.virt.kubernetes.get.pods-all-namespaces="q.checkbin kubectl && kubectl get pods --all-namespaces"
+alias q.virt.kubernetes.get.namespaces-labels="q.checkbin kubectl && kubectl get namespaces --show-labels"
+alias q.virt.kubernetes.get.namespaces="q.checkbin kubectl && kubectl get namespaces"
+alias q.virt.kubernetes.get.services="q.checkbin kubectl && kubectl get svc"
+alias q.virt.kubernetes.get.contexts="q.checkbin kubectl && kubectl config get-contexts"
+alias q.virt.kubernetes.get.config="q.checkbin kubectl && kubectl config view"
+alias q.virt.kubernetes.get.nodes="q.checkbin kubeadm && kubeadm get node"
+alias q.virt.kubernetes.generate.token="q.checkbin kubeadm && kubeadm token generate"
+alias q.virt.kubernetes.explain="q.checkbin kubectl && kubectl explain"
+alias q.virt.kubernetes.minikube-dashboard="q.checkbin minikube && minikube dashboard"
+
+function q.virt.kubernetes.create.namespace() {
+q.checkDOLLAR1 $1 && q.checkbin kubectl && kubectl create namespace $1
+}
+
+function q.virt.kubernetes.set.context() {
+q.checkDOLLAR2 $1 $2 && q.checkbin kubectl && kubectl config set-context $1 --namespace=$2
+}
+
+function q.virt.kubernetes.use.context() {
+q.checkDOLLAR1 $1 && q.checkbin kubectl && kubectl config use-context $1
+}
+
+function q.virt.kubernetes.edit() {
+q.checkDOLLAR1 $1 && q.checkbin kubectl && kubectl edit $1
+}
+
+function q.virt.kubernetes.create-dashboard() {
+q.checkbin kubectl && kubectl create -f https://git.io/kube-dashboard
+}
+
+function q.virt.kubernetes.scale.deployment() {
+q.checkDOLLAR1 $1 && q.checkbin kubectl && kubectl scale deployment $1 --replicas=$2
+}
+
+function q.virt.kubernetes.describe.pod() {
+q.checkDOLLAR1 $1 && q.checkbin kubectl && kubectl describe $1
+}
+
+
+export -f q.virt.kubernetes.create.namespace
+export -f q.virt.kubernetes.set.context
+export -f q.virt.kubernetes.use.context
+export -f q.virt.kubernetes.edit
+export -f q.virt.kubernetes.create-dashboard
+export -f q.virt.kubernetes.scale.deployment
+export -f q.virt.kubernetes.describe.pod

@@ -1,0 +1,5 @@
+###############################################################################
+# OBSOLETE COMMANDS
+###############################################################################
+alias q.obsolete.chkconfig='/usr/sbin/chkconfig --list'
+alias q.obsolete.netstat='netstat'

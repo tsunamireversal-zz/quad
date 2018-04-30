@@ -1,0 +1,28 @@
+#### This is a clean conkyrc
+#### It also will show in realtime the network connections
+#### and the most used processes
+double_buffer yes
+alignment bottom_right
+own_window_class conky
+own_window yes
+own_window_type dock
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+draw_borders no
+draw_graph_borders no
+border_margin 5
+draw_shades yes
+gap_x 0
+gap_y 5
+update_interval 1
+update_interval_on_battery 30
+default_color  fff
+own_window_colour 222222
+use_xft yes
+xftfont sans:size=7
+override_utf8_locale yes
+use_spacer none
+minimum_size 1920 0
+TEXT
+${color #ffcc33} ${color #ffcc00}${exec netstat -aln | grep ESTA|awk {'print $5"      "'}|uniq | tr '\n' ' ' | sort -n -t . -k1,1n -k2,2n }
+${color #fff}${goto 5}${font sans:size=7} ${time %d/%m/%Y}${color}${font}  - ${color e0e0e0}${font sans:size=7}${time %H:%M:%S}${color}${font}  | Uptime: ${color e0e0e0}${font sans:size=7}${uptime_short}${color}${font} | Kernel: ${color ffaaaa}${font sans:size=7}$kernel${color}${font} |${color #fff}RAM LEFT: ${color #22cc22}$memeasyfree | ${color #e0e0e0} MOST CPU: ${color #ff4422} ${top name 1}${top cpu 1} | ${color #e0e0e0} MOST RAM: ${color #33ee33} ${top_mem name 2}${top_mem mem 1}

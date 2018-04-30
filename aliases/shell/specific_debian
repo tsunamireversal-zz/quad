@@ -1,0 +1,2 @@
+alias q.specific.debian.mksquashfs-pxe="mksquashfs edit/ casper/filesystem.squashfs -noappend -always-use-fragments"
+

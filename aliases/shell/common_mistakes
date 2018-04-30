@@ -1,0 +1,7 @@
+###############################################################################
+# QUAD: COMMON MISTAKES
+###############################################################################
+alias alais='co_orange "QUAD says: ...do you mean alias?"'
+alias unalais='co_orange "QUAD says: ...do you mean unalias?"'
+alias sl='co_green "QUAD says: You mean ls?" && ls'
+

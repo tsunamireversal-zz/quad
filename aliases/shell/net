@@ -1,0 +1,36 @@
+###############################################################################
+# NETWORK ALIASES
+###############################################################################
+alias q.net.show-listening-ports='netstat -an |grep LISTEN|grep -v ING'
+alias q.net.ssh.keyclone='ssh-copy-id -i ~/.ssh/id_rsa.pub'
+alias q.sshk='q.net.ssh.keyclone'
+alias q.net.www.dig='co_orange "Which site?"; read SITE; dig +nocmd +noall +answer -x $SITE'
+
+function q.net.set.networkbits() {
+  q.co_green "EX: q.net.set.networkbits 192.168.1 [to focus on this network]"
+  Q_NET_BITS=$1
+  export Q_NET_BITS
+}
+
+function q.net.ssh() {
+ ssh $Q_NET_BITS.$1
+}
+
+function q.net.ssh-backup() {
+if [[ -z $1 ]]||[[ -z $2 ]]||[[ -z $3 ]];then
+  echo 'Usage: ssh-net-backup [SOURCE2BACKUP:$4] USER($1)@SOURCE($2):PATH($3)'
+else
+tar cvzf - $4 | ssh $1@$2 "dd of=$3"
+fi
+}
+
+function q.net.ssh-restore() {
+if [[ -z $1 ]]||[[ -z $2 ]]||[[ -z $3 ]];then
+  echo 'Usage: ssh-net-restore USER($1)@SOURCE($2):PATH($3) -- NOTE: Data will be restored to current dir, plan accordingly.'
+else
+ssh $1@$2 "cat $3" | tar zxvf
+fi
+}
+
+export -f q.net.ssh-backup
+export -f q.net.ssh-restore

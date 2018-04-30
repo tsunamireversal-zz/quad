@@ -1,0 +1,41 @@
+###############################################################################
+# QUAD: SYSTEM COMMANDS
+###############################################################################
+alias ls='ls --color=auto'
+alias q.status='q.co_green "QUAD $QUAD_VERSION IS RUNNING AS USER $USER\n"'
+alias q='. ~/.quad/quad'
+alias q.reload='q'
+alias q.ls='ls --color=auto'
+alias dir='ls --color=auto --format=vertical'
+alias q.vi='vim -N'
+alias q.lsl='ls -altr'
+alias q.hc="history -c"
+alias q.dump="type"
+alias q.sys.lsof='q.checkbin lsof && echo "Listing open files on the system" ; lsof'
+alias q.sys.tcpdump='q.checkbin tcpdump && tcpdump'
+alias q.sys.service='q.checkbin service && service'
+alias q.sys.tcptraceroute='q.checkbin tcptraceroute && tcptraceroute'
+alias q.sys.traceroute='q.checkbin docker && traceroute'
+alias q.sys.lvm.pvs='pvs'
+alias q.sys.lvm.vgs='vgs'
+alias q.sys.lvm.lvs='lvs'
+alias q.sys.lvm.pv.display='pvdisplay'
+alias q.sys.lvm.vg.display='vgdisplay'
+alias q.sys.lvm.lv.display='lvdisplay'
+alias q.sys.files.find_unowned='find . -nouser -o nogroup 2> /dev/null'
+alias q.sys.files.log.journalctl-follow='journalctl -f'
+
+function q.lh() {
+ls -a | grep "^\."
+}
+
+export -f q.lh
+
+###############################################################################
+# QUAD SYSTEM FUNCTIONS
+###############################################################################
+function q.search() {
+grep -Enri "$1" `find ~/.quad -name "*"`
+}
+
+export -f q.search

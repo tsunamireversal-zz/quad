@@ -1,0 +1,8 @@
+function q.virt.qemu-img-create-qcow2() {
+  if [[ -z $2 ]];then
+    echo "Usage: qemu-img-creator FILENAME SIZE_IN_GIGABYTES (extension .qcow2 and size as GB will be added automatically"
+  else
+    /usr/bin/qemu-img create -f qcow2 -o preallocation=metadata $1.qcow2 ${2}G
+  fi
+}
+

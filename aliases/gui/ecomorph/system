@@ -1,0 +1,5 @@
+function q.gui.ecomorph.reload_ecomorph() {
+xdotool key ctrl+grave
+}
+
+export -f q.gui.ecomorph.reload_ecomorph

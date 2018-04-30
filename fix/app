@@ -1,0 +1,4 @@
+function q.fix.thunderbird() {
+sed -i 's/fullscreen/normal/g' `find ~/.thunderbird -name 'xulstore.json'`
+}
+

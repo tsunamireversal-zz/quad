@@ -1,0 +1,83 @@
+###############################################################################
+# SNIPPETS/APPS
+###############################################################################
+alias l="q.l"
+
+q.app.screenshot-take() {
+#TODO - fix! Add logic for different screenshot managers
+# and also for timer logic to allow user to prepare as he wants
+q.checkbin gnome-screenshot && \
+q.co_orange "Taking screenshot in 5 seconds - Prepare your screen..."
+sleep 5 && gnome-screenshot -a
+}
+
+q.app.md5sum-all-files() {
+q.checkbin md5sum && md5sum `find . -type f -name "*"`
+}
+
+q.app.password-generator() {
+  q.checkbin dd && dd if=/dev/urandom bs=1 count=$1 2>/dev/null \
+  | base64 -w 0 | rev | cut -b 2- | rev | sed 's/+/p/'
+}
+
+q.app.clone-file-timestamp () {
+  [[ -f $1 ]] && cp $1 $1.`date +%y%m%d` 2>/dev/null || q.co_red "Missing file name."
+}
+
+function q.app.jsonify-file() {
+q.checkbin python && \
+if [[ -z $1 ]]; then
+  q.co_orange 'Usage: jsonify [FILENAME] \n NOTE -> Need python JSON module installed!'
+else
+  cat $1 | python -m json.tool
+fi
+}
+
+
+#Hidden bash function
+function _tree() {
+VAR_TREE=`which tree|wc -l`
+if [[ $VAR_TREE -eq 0 ]];then
+    ls
+else
+    tree -L $1
+fi
+}
+
+function q.show() {
+type -a $1
+}
+
+function q.l() {
+_tree 1
+}
+function q.ll() {
+_tree 2
+}
+
+function q.lll() {
+_tree 3
+}
+
+function q.llll() {
+_tree 4
+}
+function q.lllll() {
+_tree 5
+}
+
+###############################################################################
+# EXPORTS
+###############################################################################
+
+export -f q.app.screenshot-take
+export -f q.app.password-generator
+export -f q.app.md5sum-all-files
+export -f q.app.clone-file-timestamp
+export -f q.app.jsonify-file
+export -f q.show
+export -f q.l
+export -f q.ll
+export -f q.lll
+export -f q.llll
+export -f q.lllll

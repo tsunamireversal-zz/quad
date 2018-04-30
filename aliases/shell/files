@@ -1,0 +1,35 @@
+function q.sys.files.find-files-greater-than-1gb() {
+find . -type f -size +1024000 -printf "%s:%h%f\n"
+}
+
+function q.sys.files.remove-spaces-in-files-and-dirs-recursive() {
+find . -name "* *" -type d | rename 's/ /_/g'; find . -name "* *" -type f | rename 's/ /_/g'
+}
+
+function q.sys.files.remove-spaces-in-files-recursive() {
+find . -name "* *" -type f | rename 's/ /_/g'
+}
+
+function q.sys.files.remove-spaces-in-dirs-recursive() {
+find . -name "* *" -type d | rename 's/ /_/g'
+}
+
+function q.sys.files.remove-inode() {
+ls -li
+echo "Which inode number to remove?"
+read INODE_NB
+find . -inum $INODE_NB -exec rm -i {} \;
+}
+
+
+function q.sys.files.cat-without-comments() {
+cat $1  | egrep -v '^$|^#|    #'
+}
+
+
+export -f q.sys.files.find-files-greater-than-1gb
+export -f q.sys.files.remove-spaces-in-files-and-dirs-recursive
+export -f q.sys.files.remove-spaces-in-files-recursive
+export -f q.sys.files.remove-spaces-in-dirs-recursive
+export -f q.sys.files.remove-inode
+export -f q.sys.files.cat-without-comments

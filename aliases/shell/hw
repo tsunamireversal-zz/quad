@@ -1,0 +1,12 @@
+###############################################################################
+# HW-SPECIFIC ALIASES
+###############################################################################
+alias q.hw.scsi.reset_hba='for i in `ls /sys/class/scsi_host`; do echo "- - -" > /sys/class/scsi_host/$i/scan; done'
+alias q.hw.keyboard.us='setxkbmap us'
+alias q.hw.keyboard.ca='setxkbmap ca'
+
+function q.hw.disk.uuid-regen() {
+co_purple "WHICH device to regen ? [Ex: /dev/sda3] :"
+read mydev
+sudo tune2fs $mydev -U `uuidgen`
+}

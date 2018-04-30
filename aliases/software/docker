@@ -1,0 +1,110 @@
+###############################################################################
+# DOCKER SPECIFIC
+###############################################################################
+#### ALWAYS KEEP THESE IMAGES ###
+DOCKER_IMAGES_KEEP="jessie|centos|ubuntu|alpine"
+
+### DOCKER ###
+alias q.virt.docker.dl='q.checkbin docker && docker ps -l -q'
+alias q.virt.docker.dpa='q.checkbin docker && docker ps -a'
+alias q.virt.docker.dp='q.checkbin docker && docker ps'
+alias q.virt.docker.dpq='q.checkbin docker && docker ps -q'
+alias q.virt.docker.dpqa='q.checkbin docker && docker ps -q -a'
+alias q.virt.docker.dk='q.checkbin docker && docker kill'
+alias q.virt.docker.dr='q.checkbin docker && docker rm'
+alias q.virt.docker.dri='q.checkbin docker && docker rmi'
+alias q.virt.docker.drif='q.checkbin docker && docker rmi -f'
+alias q.virt.docker.di='q.checkbin docker && docker images'
+alias q.virt.docker.dins='q.checkbin docker && docker inspect'
+alias q.virt.docker.de='q.checkbin docker && docker exec'
+alias q.virt.docker.ds='q.checkbin docker && docker stats $(docker ps -q)'
+alias q.virt.docker.dt='q.checkbin docker && docker top'
+alias q.virt.docker.dinf='q.checkbin docker && docker info'
+
+### DOCKER-COMPOSE ###
+alias q.virt.docker.dc='q.checkbin docker && docker-compose'
+alias q.virt.docker.dcc='q.checkbin docker && docker-compose config'
+alias q.virt.docker.dcev='q.checkbin docker && docker-compose events'
+alias q.virt.docker.dclf='q.checkbin docker && docker-compose logs -f'
+alias q.virt.docker.dcd='q.checkbin docker && docker-compose down'
+alias q.virt.docker.dcu='q.checkbin docker && docker-compose up'
+alias q.virt.docker.dcud='q.checkbin docker && docker-compose up -d'
+alias q.virt.docker.dce='q.checkbin docker && docker-compose exec'
+alias q.virt.docker.dcp='q.checkbin docker && docker-compose ps'
+alias q.virt.docker.dcr='q.checkbin docker && docker-compose restart'
+alias q.virt.docker.dcs='q.checkbin docker && docker-compose scale'
+alias q.virt.docker.dcs='q.checkbin docker && docker-compose scale'
+alias q.virt.docker.dni='q.checkbin docker && docker network inspect'
+alias q.virt.docker.dvl='q.checkbin docker && docker volume ls'
+alias q.virt.docker.dkaa='q.checkbin docker && q.virt.docker.dr `q.virt.docker.dpqa`'
+
+function q.virt.docker.dka() {
+q.checkbin docker &&
+NBCONTAINERS=`q.virt.docker.dpq|wc -l`
+if [[ $NBCONTAINERS -gt 0 ]];then
+q.co_red "WARNING: ENTER 'YES' TO KILL ALL CONTAINERS"
+q.co_red "------   SHOULD NOT BE USED IN PROD   ------"
+  q.co_green "LIST: "
+  q.virt.docker.dp
+  read IN
+  if [[ "$IN" == "YES" ]];then
+	q.co_red "Killing..."
+	q.virt.docker.dk `dpq`
+  q.virt.docker.dr `q.virt.docker.dpqa`
+  fi
+else
+  q.co_purple "SORRY, NOTHING TO KILL HERE..."
+fi
+}
+
+function q.virt.docker.bash() {
+q.checkbin docker && q.checkDOLLAR1 $1 && docker exec -i -t $1 /bin/bash
+}
+
+function q.virt.docker.dlog() {
+q.checkbin docker && q.virt.docker.di --format '{{$1}}' $2
+}
+
+function q.virt.docker.dcrenv() {
+q.checkbin docker-compose && q.checkDOLLAR1 $1 && docker-compose run $1 env
+}
+
+function q.virt.docker.yaml_crunch {
+  q.checkDOLLAR2 $1 $2
+   local prefix=$2
+   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+   sed -ne "s|^\($s\):|\1|" \
+        -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
+        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+   awk -F$fs '{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i > indent) {delete vname[i]}}
+      if (length($3) > 0) {
+         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+      }
+   }'
+}
+
+function q.virt.docker.ns() {
+  q.co_orange "Which container (ID) do you want to enter?"
+  docker ps
+  read DOCKER_ID
+  PID=$(docker inspect --format {{.State.Pid}} $DOCKER_ID)
+  sudo nsenter --target $PID --mount --uts --ipc --net --pid /bin/sh
+}
+
+function q.virt.docker.drifa() {
+IMAG=`docker images|grep -Ev "$DOCKER_IMAGES_KEEP"|awk {'print $3'}|grep -v IM |wc -l`
+if [[ $IMAG -gt 0 ]];then
+  q.co_red "WARNING: This will remove all these images:"
+  docker images|grep -Ev "$DOCKER_IMAGES_KEEP"
+  read
+  docker rmi -f `docker images|grep -Ev "$DOCKER_IMAGES_KEEP"|awk {'print $3'}|grep -v IM`
+  q.co_orange "List of docker-compose caches:"
+  docker-compose ps
+else
+  q.co_green "REPO is already clean!"
+fi
+}

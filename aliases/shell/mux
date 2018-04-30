@@ -1,0 +1,16 @@
+. ~/.quad/aliases/shell/colors
+. ~/.quad/aliases/shell/sys
+. ~/.quad/aliases/shell/files
+. ~/.quad/aliases/shell/dirs
+. ~/.quad/aliases/shell/net
+. ~/.quad/aliases/shell/hw
+. ~/.quad/aliases/quadonly/quick
+. ~/.quad/aliases/quadonly/error_handling
+. ~/.quad/aliases/shell/common_mistakes
+. ~/.quad/aliases/shell/forceload
+. ~/.quad/aliases/shell/obsolete
+. ~/.quad/aliases/shell/translations
+. ~/.quad/fix/app
+. ~/.quad/aliases/shell/specific_debian
+. ~/.quad/apps/shell/apps
+. ~/.quad/apps/gui/apps

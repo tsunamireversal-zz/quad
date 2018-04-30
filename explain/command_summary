@@ -1,0 +1,95 @@
+[MODULE:APP]\tq.app.screenshot-take\n\t\tTakes a screenshot of the screen located in ~/Screenshot*.\n
+[MODULE:APP]\tq.app.md5sum-all-files\n\t\tGenerates an MD5 hash of every file in the current directory.\n
+[MODULE:APP]\tq.app.password-generator\n\t\tGenerates a good password. Expects a number of characters.\n
+q.app.clone-file-timestamp () {
+[MODULE:CORE]\tq.ll\n\t\tShows a tree of the files in the current working directory.\n
+[MODULE:CORE]\tq.ls\n\t\tSimple ls wrapper with coloring.\n
+[MODULE:CORE]\tq.lsl\n\t\tSimple ls wrapper with coloring (detailed columns) format.\n
+[MODULE: NET]\tq.net.show-listening-ports\n\t\tDisplay port currently opened on this system.\n
+[MODULE: NET]\tq.net.ssh-backup\n\t\tSend series of files/folders to remote system.\n
+[MODULE: NET]\tq.net.ssh.keyclone\n\t\tSend main ssh public key to a remote system.\n
+[MODULE: NET]\tq.net.ssh-restore\n\t\tReceive series of files/folders from remote system.\n
+[MODULE: NET]\tq.net.www.dig\n\t\tSimple ls wrapper with coloring (detailed columns) format.\n
+[MODULE: NET]\tq.net.ssh\n\t\tOpens ssh session [REQUIRES q.net.set.networkbits first!].\n
+[MODULE: NET]\tq.sshk\n\t\tSend main ssh public key to a remote system.\n
+[MODULE: NET]\tq.net.set.networkbits\n\t\tSets the working network portion for easy ssh accesses.\n
+[MODULE: OBSOLETE]\tq.obsolete.chkconfig\n\t\tReplaced by systemctl.\n
+[MODULE: OBSOLETE]\tq.sys.netstat\n\t\tReplaced by ss in iproute packages.\n
+[MODULE: QUAD]\tq.reload\tReload QUAD. Very useful is you want to test changes.\n
+[MODULE: QUAD]\tq.search\tSearch QUAD files for specific term.\n
+[MODULE: QUAD]\tq.show\tShow the alias/function contruct.\n
+[MODULE: QUAD]\tq.specific.debian.mksquashfs-pxe\tCreate a debian SQUASH image.\n
+[MODULE: SYS]\tq.sys.files.cat-without-comments\n\t\tDump a file content without # and empty lines.\n
+[MODULE: SYS]\tq.sys.files.find-files-greater-than-1gb\n\t\tSearch recursively for >1gb (large) files.\n
+[MODULE: SYS]\tq.sys.files.find_unowned\n\t\tFind files you do not own.\n
+[MODULE: SYS]\tq.sys.files.remove-inode\n\t\tRemove specific inode from the system.\n
+[MODULE: SYS]\tq.sys.files.remove-spaces-in-files-and-dirs-recursive\n\t\tFix files&dirs that have spaces in them. Recursively.\n
+[MODULE: SYS]\tq.sys.files.remove-spaces-in-files-recursive\n\t\tFix files that have spaces in them. Recursively.\n
+[MODULE: SYS]\tq.sys.files.remove-spaces-in-dirs-recursive\n\t\tFix dirs that have spaces in them. Recursively.\n
+[MODULE: SYS]\tq.sys.files.log.journalctl-follow\n\t\tFollow the system's main log file.\n
+[MODULE: SYS]\tq.sys.lsof\n\t\tList files currently opened by the operating system.\n
+[MODULE: SYS] [PREREQ: LVM]\tq.sys.lvm.lv.display\n\t\tShows logical volumes currently defined.\n
+[MODULE: SYS] [PREREQ: LVM]\tq.sys.lvm.pv.display\n\t\tShows physical volumes currently defined.\n
+[MODULE: SYS] [PREREQ: LVM]\tq.sys.lvm.vg.display\n\t\tShows volume groups currently defined.\n
+[MODULE: SYS] [PREREQ: LVM]\tq.sys.lvm.lvs\n\t\tShows logical volumes currently defined.\n
+[MODULE: SYS] [PREREQ: LVM]\tq.sys.lvm.pvs\n\t\tShows physical volumes currently defined.\n
+[MODULE: SYS] [PREREQ: LVM]\tq.sys.lvm.vgs\n\t\tShows volume groups currently defined.\n
+[MODULE: OBSOLETE]\tq.sys.service\n\t\tShows current service states. Replaced by "systemctl status -l".\n
+[MODULE: SYS]\tq.sys.tcpdump\n\t\tUsed to dump packets coming from the network for analysis.\n
+[MODULE: SYS]\tq.sys.tcptraceroute\n\t\tUsed to trace routes the host uses to reach a destination on the network.\n
+[MODULE: SYS]\tq.sys.traceroute\n\t\tUsed to trace routes the host uses to reach a destination on the network.\n
+[MODULE: SYS]\tq.vi\n\t\tLaunch vim editor, with syntax highlighting.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.bash\n\t\tLaunch vim editor, with syntax highlighting.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcc\n\t\tValidate and view the compose file.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcd\n\t\tWARNING: Brings down the containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dce\n\t\tExecutes inside the containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcev\n\t\tView docker-compose events.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dclf\n\t\tFollow logs inside a docker-compose instance.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcp\n\t\tdocker-compose process listing (what's running).\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcr\n\t\tWARNING: Restarts the containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcrenv\n\t\tWARNING: Runs containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcs\n\t\tWARNING: Scales containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcu\n\t\tWARNING: Brings up the containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER-COMPOSE]\tq.virt.docker.dcud\n\t\tWARNING: Brings up the containers in detached mode.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.de\n\t\tExecutes a process inside a docker container.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.di\n\t\tList images on the system.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dinf\n\t\tView docker system info.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dins\n\t\tInspect a container in closer details.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dk\n\t\tWARNING: Kills a container.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dka\n\t\tWARNING: Kills all containers. Useful when debugging.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dkaa\n\t\tWARNING: Kills all containers. Useful when debugging.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dl\n\t\tShow last launched container ID in short-form.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dlog\n\t\tShow last launched container ID in short-form.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dni\n\t\tInspect container network construct.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dp\n\t\tShows active containers.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpa\n\t\tShows all containers that ran on this system.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpq
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpqa
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dr\n\t\tWARNING: performs a docker-remove-container.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dri\n\t\tWARNING: performs a docker-remove-image.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.drif\n\t\tWARNING: performs a docker-remove-images-force.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.drifa\n\t\tWARNING: performs a docker-remove-images-force-all.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.ds
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dt
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dvl
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.ns
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.yaml_crunch
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.create-dashboard
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.create.namespace
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.describe.pod
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.edit
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.explain
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.generate.token
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.config
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.contexts
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.namespaces
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.namespaces-labels
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.nodes
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.pods
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.pods-all-namespaces
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.services
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.minikube-dashboard
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.scale.deployment
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.set.context
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.use.context
+[MODULE: HW]\tq.hw.disk.uuid-regen\n\t\tWARNING: Changes the UUID of a running device. Useful with dd clones.\n

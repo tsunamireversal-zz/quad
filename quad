@@ -1,0 +1,152 @@
+#!/bin/bash
+###############################################################################
+# QUAD: [Q]uery [U]tility for [A]ccelerated [D]evelopment
+# Author: Martin Levasseur [quad@impossible3d.com]
+# Date : 2018-04-30
+###############################################################################
+
+###############################################################################
+# QUAD: INSTALLER
+###############################################################################
+if [[ ! -d ~/.quad ]];then
+  ln -sf ~/quad ~/.quad 2>/dev/null
+fi
+echo "set completion-query-items 0" > ~/.inputrc
+echo "set page-completions off" >> ~/.inputrc
+if [[ "$1" == "install" ]];then
+  PROFILE_ALREADY=`grep "quad\/quad" ~/.bash_profile|wc -l`
+  if [[ $PROFILE_ALREADY -eq 0 ]];then
+    echo ". ~/.quad/quad" >> ~/.bash_profile
+    echo
+    echo "QUAD is now installed. Log out and back into this shell to use it."
+
+  else
+    q.co_green "INFO: QUAD is already available, you can start using it!"
+    q.co_green "type the keys:  <q><dot> and hit tab repeatedly"
+    q.co_purple "\nIf you see this message -> Display all 122 possibilities? (y or n)\n Just hit y key"
+  fi
+fi
+
+if [[ "$1" == "uninstall" ]];then
+    sed -i '/quad\/quad/d' ~/.bash_profile
+    q.co_orange "INFO: QUAD is now uninstalled."
+fi
+
+###############################################################################
+# QUAD: CORE VARIABLES
+###############################################################################
+export QUAD_VERSION="18.04"
+export QUAD_EXPLAIN="y"
+export QUAD_DIR=`pwd`
+export QUAD_WHOAMI=`echo $USER`
+export QUAD_OS=`uname -s`
+export QUAD_RELEASE=`cat /etc/*eleas*|grep ID_LIKE`
+export QUAD_NETWORK_IP=`ip a | sed -En 's/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'|grep -v 127|grep -v 172`
+export QUAD_TABSIZE=2
+###############################################################################
+# CORE MODULE - NO DISTRO-SPECIFIC COMMANDS SHOULD EVER GO HERE!!!
+###############################################################################
+shopt -s checkwinsize
+shopt -s histappend
+tabs $QUAD_TABSIZE
+
+# Shell coloring.
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+if [ "$TERM" != "dumb" ]; then
+	[ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
+	[ -e "$DIR_COLORS" ] || DIR_COLORS=""
+	eval "`dircolors -b $DIR_COLORS`"
+fi
+# Auto-completion loading
+[ -f /etc/bash_completion ] && . /etc/bash_completion
+
+#Adding QUAD to user's path [only once]
+QUAD_PATH_ALREADY=`echo ${PATH} |grep -i quad|wc -l`
+if [[ $QUAD_PATH_ALREADY -eq 0 ]];then
+    export PATH=${PATH}:~/.quad
+fi
+
+export PROMPT_COMMAND='history -a'
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%F %T "
+
+###############################################################################
+# QUAD multiplexer :: routing for quad, which adds flexible modularity.
+###############################################################################
+. ~/.quad/aliases/shell/mux
+
+#Load specific shell aliases depending on user shell.
+if [[ "$SHELL" == "/bin/bash" ]];then
+  . ~/.quad/aliases/shell/bash_specific
+elif [[ "$SHELL" == "/bin/csh" ]];then
+  . ~/.quad/aliases/shell/csh_specific
+elif [[ "$SHELL" == "/bin/tcsh" ]];then
+  . ~/.quad/aliases/shell/tcsh_specific
+elif [[ "$SHELL" == "/bin/zsh" ]];then
+  . ~/.quad/aliases/shell/zsh_specific
+fi
+
+#QUAD software awareness
+. ~/.quad/aliases/software/mux
+
+
+###############################################################################
+# QUAD's CUTE OUTPUT SO IT'S AVAILABLE TO ALL SUBSEQUENT CODE.
+###############################################################################
+
+function q.co_green () {
+		echo -ne "\033[32m--------------------------------------------------------------------";
+		echo -ne "\n\033[32m $1 $2 $3 $4 $5 $6 $7 $8 $9";
+		echo -ne "\n\033[32m--------------------------------------------------------------------\033[1;37m\n";
+}
+
+function q.co_red () {
+		echo -ne "\033[31m--------------------------------------------------------------------";
+		echo -ne "\n\033[31m $1 $2 $3 $4 $5 $6 $7 $8 $9";
+		echo -ne "\n\033[31m--------------------------------------------------------------------\033[1;37m\n";
+}
+
+function q.co_orange () {
+		echo -ne "\033[33m--------------------------------------------------------------------";
+		echo -ne "\n\033[33m $1 $2 $3 $4 $5 $6 $7 $8 $9";
+		echo -ne "\n\033[33m--------------------------------------------------------------------\033[1;37m\n";
+}
+
+function q.co_purple () {
+		echo -ne "\033[35m--------------------------------------------------------------------";
+		echo -ne "\n\033[35m $1 $2 $3 $4 $5 $6 $7 $8 $9";
+		echo -ne "\n\033[35m--------------------------------------------------------------------\033[1;37m\n";
+}
+
+function q.co_white () {
+		echo -ne "\033[37m--------------------------------------------------------------------";
+		echo -ne "\n\033[37m $1 $2 $3 $4 $5 $6 $7 $8 $9";
+		echo -ne "\n\033[37m--------------------------------------------------------------------\033[1;37m\n";
+}
+
+export -f q.co_green
+export -f q.co_red
+export -f q.co_orange
+export -f q.co_purple
+export -f q.co_white
+
+## In case user has no vimrc, let's put a basic one for cli editing
+if [[ ! -f ~/.vimrc ]];then
+cat > ~/.vimrc <<EOF
+set number
+set tabstop=4
+set softtabstop=2
+set background=dark
+set hlsearch
+set incsearch
+set backspace=indent,eol,start
+set hidden
+set wildmenu
+set wildmode=list:longest
+set ignorecase
+set smartcase
+set ruler
+EOF
+fi
+
+logger "QUAD session loaded for $USER"

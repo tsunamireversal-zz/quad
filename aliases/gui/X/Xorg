@@ -1,0 +1,14 @@
+
+if [[ ! -z "$DISPLAY" ]];then
+#Accelerate keyboard if we've got X running.
+  co_green "Keyboard: Accelerated!"
+  xset r rate 190 35
+fi
+
+function wmctrl-get-window-id() {
+    window_id=$(wmctrl -l | grep "$1" | tail -1 | cut -f1 -d" ")
+}
+
+function wmctrl-show-positions() {
+wmctrl -p -G -l
+}

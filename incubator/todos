@@ -1,0 +1,14 @@
+###############################################################################
+# TODOS : DEVELOP EASIER/FASTER/BETTER IDEAS - USUALLY PARTIAL IDEAS HERE
+###############################################################################
+
+function q.net.www.packt-show-deal-of-the-day-string() {
+curl https://www.packtpub.com/packt/offers/free-learning/|grep -A 2 "dotd-main-book-image float-left"
+}
+
+function q.app.timer.zenity_infobox() {
+while true; do sleep $1 && zenity --info --text "It's been $1 seconds"; done
+}
+
+export -f q.app.timer.zenity_infobox
+export -f q.net.www.packt-show-deal-of-the-day-string

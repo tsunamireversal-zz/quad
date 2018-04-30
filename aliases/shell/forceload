@@ -1,0 +1,3 @@
+alias q.forceload.csh=". ~/.quad/aliases/shell/csh_specific"
+alias q.forceload.tcsh=". ~/.quad/aliases/shell/tcsh_specific"
+alias q.forceload.zsh=". ~/.quad/aliases/shell/zsh_specific"

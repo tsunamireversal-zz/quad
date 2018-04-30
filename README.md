@@ -137,13 +137,13 @@ q.net.set.networkbits ()
 ```
   $ q.app.password-generator 24
   ```
-  TO DUMP THE CODE:
+### TO DUMP THE CODE:
     ```
     $ type q.dump q.app.password-generator
     ...is a function
       dd if=/dev/urandom bs=1 count=$1 2> /dev/null | base64 -w 0 | rev | cut -b 2- | rev | sed 's/+/p/'
       ```
-  TO ACCESS THE HELP MODULE ON THIS FUNCTION:
+### TO ACCESS THE HELP MODULE ON THIS FUNCTION:
   ```
     $ q.help q.app.password-generator
       --------------------------------------------------------------------
@@ -152,8 +152,6 @@ q.net.set.networkbits ()
 
       --------------------------------------------------------------------
   ```
-
-
 
 ## WHY THIS PROJECT
 It became evident to me over the years that people (especially those
@@ -191,11 +189,23 @@ like to help QUAD project on github (not only technically), let me know at the
 above address.
 
 ## LICENSE
-PLEASE check the LICENSE file for details, but basically:
-- Leave/Give credit to the author in any subsequent copy
+PLEASE check the LICENSE file for details. But, in a nutshell:
+
+### Permissions:
+  Commercial use
+  Distribution
+  Modification
+  Private use
+
+### Conditions:
+  License and copyright notice
+
+### Limitations:
+  No Liability
+  No Warranty
 
 --------------------------------------------------------------------------------
-# IMPORTANT: QUAD IS NOT RECOMMENDED FOR PRODUCTION WORK [YET]!
-# BY CLONING/DOWNLOADING THIS REPO, YOU ACCEPT THAT YOU ARE USING QUAD AT YOUR OWN
-# RISK.
+### IMPORTANT: QUAD IS NOT RECOMMENDED FOR PRODUCTION WORK [YET]!
+### BY CLONING/DOWNLOADING THIS REPO, YOU ACCEPT THAT YOU ARE USING QUAD AT
+### YOUR OWN RISK.
 --------------------------------------------------------------------------------

@@ -63,33 +63,38 @@ q.app.clone-file-timestamp () {
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dni\n\t\tInspect container network construct.\n
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dp\n\t\tShows active containers.\n
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpa\n\t\tShows all containers that ran on this system.\n
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpq
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpqa
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpq\n\t\tShows all running container IDs on this system.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dpqa\n\t\tShows all container IDs that are on this system.\n
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dr\n\t\tWARNING: performs a docker-remove-container.\n
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dri\n\t\tWARNING: performs a docker-remove-image.\n
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.drif\n\t\tWARNING: performs a docker-remove-images-force.\n
 [MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.drifa\n\t\tWARNING: performs a docker-remove-images-force-all.\n
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.ds
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dt
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dvl
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.ns
-[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.yaml_crunch
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.create-dashboard
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.create.namespace
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.describe.pod
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.edit
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.explain
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.generate.token
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.config
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.contexts
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.namespaces
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.namespaces-labels
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.nodes
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.pods
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.pods-all-namespaces
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.services
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.minikube-dashboard
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.scale.deployment
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.set.context
-[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.use.context
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.ds\n\t\tDisplays docker stats.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dt\n\t\tDisplays docker [top-like] processes.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.dvl\n\t\tDisplays docker volumes listing.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.ns\n\t\tEnters a docker container namespace.\n
+[MODULE: VIRTUALIZATION] [PREREQ: DOCKER]\tq.virt.docker.yaml_crunch\n\t\tYAML formatting.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.create-dashboard\n\t\tCreates a kubernetes-dashboard instance.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.create.namespace\n\t\tCreates a kubernetes namespace.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.describe.pod\n\t\tDescribes a kubernetes pod.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.edit\n\t\tEdit a kubernetes manifest.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.explain\n\t\tExplain kubernetes parts function.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.generate.token\n\t\tGenerate a new token for API access.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.config\n\t\tDisplays kubernetes cluster configuration.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.contexts\n\t\tDisplay kubernetes available contexts.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.namespaces\n\t\tDisplay kubernetes namespaces.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.namespaces-labels\n\t\tDisplay kubernetes namespaces and labels.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.nodes\n\t\tDisplay kubernetes worker nodes.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.pods\n\t\tList pods in current namespace.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.pods-all-namespaces\n\t\tList pods in all namespaces.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.get.services\n\t\tList kubernetes services.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.minikube-dashboard\n\t\Launches a dashboard for minkube local k8s instance.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.scale.deployment\n\t\Replicates instances.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.set.context\n\t\Sets user context.\n
+[MODULE: VIRTUALIZATION] [PREREQ: KUBERNETES]\tq.virt.kubernetes.use.context\n\t\Switch to a user context.\n
 [MODULE: HW]\tq.hw.disk.uuid-regen\n\t\tWARNING: Changes the UUID of a running device. Useful with dd clones.\n
+
+#TODO : ADD THESE
+#list k8s apis available -> kubectl api-versions
+#get minikube -> curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+#get kubectl (latest) -> curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl

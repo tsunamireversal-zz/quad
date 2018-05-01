@@ -9,7 +9,7 @@
 # QUAD: INSTALLER
 ###############################################################################
 if [[ ! -d ~/.quad ]];then
-  ln -sf ~/quad ~/.quad 2>/dev/null
+  mv ~/quad ~/.quad && cd ~/.quad 2>/dev/null
 fi
 echo "set completion-query-items 0" > ~/.inputrc
 echo "set page-completions off" >> ~/.inputrc
@@ -43,6 +43,7 @@ export QUAD_OS=`uname -s`
 export QUAD_RELEASE=`cat /etc/*eleas*|grep ID_LIKE`
 export QUAD_NETWORK_IP=`ip a | sed -En 's/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'|grep -v 127|grep -v 172`
 export QUAD_TABSIZE=2
+
 ###############################################################################
 # CORE MODULE - NO DISTRO-SPECIFIC COMMANDS SHOULD EVER GO HERE!!!
 ###############################################################################

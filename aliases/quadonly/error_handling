@@ -2,6 +2,17 @@
 # QUAD CHECKS AND ERROR HANDLING
 ###############################################################################
 
+function q.warn() {
+q.co_red "RUNNING THIS COMMAND MAY HAVE AN IMPACT ON A RUNNING SYSTEM"
+q.co_red "ARE YOU SURE YOU WANT TO DO THAT? [y/n]"
+read ANS
+if [[ "$ANS" == "y" ]];then
+  return 0
+else
+  return 249
+fi
+}
+
 function q.help() {
 if [[ $QUAD_EXPLAIN == "y" ]];then
   q.co_purple "`grep -i $1 ~/.quad/explain/command_summary`"
@@ -13,7 +24,7 @@ Q_WHICH=`which $1|wc -l`
 if [[ $Q_WHICH -eq 0 ]];then
   q.co_red "QUAD_ERROR: $1 not found [or not available in PATH] Aborting."
   q.co_green "QUAD_RECOMMENDS: Install or locate the program so it is found\n by the shell."
-  return 1
+  return 250
 fi
 }
 function q.checkDOLLAR1() {

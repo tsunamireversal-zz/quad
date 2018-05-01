@@ -30,7 +30,7 @@ fi
 function q.checkDOLLAR1() {
 if [[ -z $1 ]];then
 q.co_red "QUAD_ERROR: This function requires (1) argument to work."
-q.co_green "QUAD_RECOMMENDS: use 'type' + function_name to know its expectations"
+q.co_green "QUAD_RECOMMENDS: use < q.dump function_name > to see its expectations"
   return 1
 fi
 }
@@ -38,7 +38,7 @@ fi
 function q.checkDOLLAR2() {
 if [[ -z $2 ]];then
   q.co_red "QUAD_ERROR: This function requires (2) arguments to work."
-  q.co_green "QUAD_RECOMMENDS: use 'type' + function_name to know its expectations"
+  q.co_green "QUAD_RECOMMENDS: use < q.dump function_name > to see its expectations"
   return 2
 fi
 }
@@ -46,7 +46,7 @@ fi
 function q.checkDOLLAR3() {
 if [[ -z $3 ]];then
   q.co_red "QUAD_ERROR: This function requires (3) arguments to work."
-  q.co_green "QUAD_RECOMMENDS: use 'type' + function_name to know its expectations"
+  q.co_green "QUAD_RECOMMENDS: use < q.dump function_name > to see its expectations"
   return 3
 fi
 }
@@ -54,7 +54,7 @@ fi
 function q.checkDOLLAR4() {
 if [[ -z $4 ]];then
   q.co_red "QUAD_ERROR: This function requires (4) arguments to work."
-  q.co_green "QUAD_RECOMMENDS: use 'type' + function_name to know its expectations"
+  q.co_green "QUAD_RECOMMENDS: use < q.dump function_name > to see its expectations"
   return 4
 fi
 }

@@ -1,10 +1,11 @@
 # QUAD : [Q]uery [U]tility for [A]ccelerated [D]evelopment
 
 ## QUAD has four purposes:
-- Inject knowledge into the Linux shell, available instantly
-- Provide quick access to hundreds of oneliners you can expand on
-- Centralize commands to help anyone learn about them
-- Improve productivity using the Linux shell daily
+
+- Inject knowledge into the Linux shell, available instantly [konwledge]
+- Provide quick access to hundreds of oneliners you can expand on [access]
+- Centralize commands to help anyone learn about them [centralization]
+- Improve productivity using the Linux shell daily [productivity]
 
 It is an effort to abstract and standardize usage of hundreds of commands
 on the shell, but will ALSO allow *anyone* to actually learn what it can do.
@@ -49,7 +50,7 @@ It will provide accelerators so you don't have to type everything in long form.
 As such, you should gain important productivity speed once you get
 accustomed to it.
 
-Everything is seperated in different modules, such as:
+Everything is separated in different modules, such as:
 - SYS (System commands)
 - NET (Network commands)
 - VIRT (Virtualization aware commands)
@@ -205,7 +206,7 @@ PLEASE check the LICENSE file for details. But, in a nutshell:
   - Modification
 
 ### Conditions:
-  - MIT License must be included in subsequent work.
+  - License must be included in subsequent work.
 
 ### Limitations:
   No Liability

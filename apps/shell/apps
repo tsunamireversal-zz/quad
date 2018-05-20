@@ -15,6 +15,11 @@ q.app.md5sum-all-files() {
 q.checkbin md5sum && md5sum `find . -type f -name "*"`
 }
 
+q.app.md5sum-specific-extension() {
+TYPE=$1
+q.checkbin md5sum && q.co_green "md5sum in progress on type $TYPE" && md5sum `find . -type f -name "*.${TYPE}"`
+}
+
 q.app.password-generator() {
   q.checkbin dd && dd if=/dev/urandom bs=1 count=$1 2>/dev/null \
   | base64 -w 0 | rev | cut -b 2- | rev | sed 's/+/p/'

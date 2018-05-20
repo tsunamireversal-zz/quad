@@ -2,7 +2,7 @@
 #### It also will show in realtime the network connections
 #### and the most used processes
 double_buffer yes
-alignment bottom_right
+alignment top_right
 own_window_class conky
 own_window yes
 own_window_type dock

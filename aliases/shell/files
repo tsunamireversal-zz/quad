@@ -26,6 +26,10 @@ function q.sys.files.cat-without-comments() {
 cat $1  | egrep -v '^$|^#|    #'
 }
 
+function q.sys.files.duplicates-finder() {
+find . -type f -printf '%p/ %f\n' | sort -k2 | uniq -f1 --all-repeated=separate
+}
+
 
 export -f q.sys.files.find-files-greater-than-1gb
 export -f q.sys.files.remove-spaces-in-files-and-dirs-recursive
@@ -33,3 +37,4 @@ export -f q.sys.files.remove-spaces-in-files-recursive
 export -f q.sys.files.remove-spaces-in-dirs-recursive
 export -f q.sys.files.remove-inode
 export -f q.sys.files.cat-without-comments
+export -f q.sys.files.duplicates-finder

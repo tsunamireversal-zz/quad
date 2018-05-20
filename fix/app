@@ -2,3 +2,12 @@ function q.fix.thunderbird() {
 sed -i 's/fullscreen/normal/g' `find ~/.thunderbird -name 'xulstore.json'`
 }
 
+function q.fix.nvidia-huge-fonts() {
+ALREADY=`cat /etc/X11/xorg.conf|grep DPI|wc -l`
+if [[ $ALREADY -eq 0 ]];then
+  sudo su -c "sed -i 's/Section \"Monitor\".*/Section \"Monitor\"\n\t\tOption \"DPI\" \"96x96\"/;ty;P;D;:y' /etc/X11/xorg.conf"
+fi
+}
+
+export -f q.fix.thunderbird
+export -f q.fix.nvidia-huge-fonts

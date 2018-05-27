@@ -4,6 +4,8 @@
 #### ALWAYS KEEP THESE IMAGES ###
 DOCKER_IMAGES_KEEP="jessie|centos|ubuntu|alpine"
 
+alias q.virt.docker.get-all-base-os="for i in ubuntu debian centos alpine; do docker pull $i;done"
+
 ### DOCKER ###
 alias q.virt.docker.dl='q.checkbin docker && docker ps -l -q'
 alias q.virt.docker.dpa='q.checkbin docker && docker ps -a'

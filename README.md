@@ -2,7 +2,7 @@
 
 ## QUAD has four purposes:
 
-- Inject knowledge into the Linux shell, available instantly [konwledge]
+- Inject knowledge into the Linux shell, available instantly [knowledge]
 - Provide quick access to hundreds of oneliners you can expand on [access]
 - Centralize commands to help anyone learn about them [centralization]
 - Improve productivity using the Linux shell daily [productivity]

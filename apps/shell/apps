@@ -12,12 +12,12 @@ sleep 5 && gnome-screenshot -a
 }
 
 q.app.md5sum-all-files() {
-q.checkbin md5sum && md5sum `find . -type f -name "*"`
+q.checkbin md5sum && md5sum `find . -type f -name "*" 2>/dev/null`
 }
 
 q.app.md5sum-specific-extension() {
 TYPE=$1
-q.checkbin md5sum && q.co_green "md5sum in progress on type $TYPE" && md5sum `find . -type f -name "*.${TYPE}"`
+q.checkbin md5sum && q.co_green "md5sum in progress on type $TYPE" && md5sum `find . -type f -name "*.${TYPE}"` 2>/dev/null
 }
 
 q.app.password-generator() {

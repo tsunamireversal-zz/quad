@@ -30,6 +30,20 @@ function q.sys.files.duplicates-finder() {
 find . -type f -printf '%p/ %f\n' | sort -k2 | uniq -f1 --all-repeated=separate
 }
 
+function q.sys.files.sync-files-from-specific-date() {
+echo "You do it like this:"
+echo find A/ -mtime -18 -mtime +1 -exec rsync -auvrp \{\} B/ \;
+}
+
+function q.sys.files.lt() {
+if [[ $1 == "i" ]];then
+  ls -la --time-style=full-iso
+elif [[ $1 == "x" ]];then
+  ls --time-style='+%d-%m-%Y %H:%M:%S' -l
+else
+  ls --time-style='+%d-%m-%Y %H:%M:%S' -l
+fi
+}
 
 export -f q.sys.files.find-files-greater-than-1gb
 export -f q.sys.files.remove-spaces-in-files-and-dirs-recursive
@@ -38,3 +52,6 @@ export -f q.sys.files.remove-spaces-in-dirs-recursive
 export -f q.sys.files.remove-inode
 export -f q.sys.files.cat-without-comments
 export -f q.sys.files.duplicates-finder
+export -f q.sys.files.sync-files-from-specific-date
+export -f q.sys.files.lt
+

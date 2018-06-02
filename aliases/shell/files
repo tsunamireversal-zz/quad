@@ -26,6 +26,10 @@ function q.sys.files.cat-without-comments() {
 cat $1  | egrep -v '^$|^#|    #'
 }
 
+function q.sys.files.rename-replace-spaces() {
+for f in *\ *; do mv "$f" "${f// /_}"; done
+}
+
 function q.sys.files.duplicates-finder() {
 find . -type f -printf '%p/ %f\n' | sort -k2 | uniq -f1 --all-repeated=separate
 }
@@ -45,6 +49,10 @@ else
 fi
 }
 
+function q.sys.files.eom-files() {
+eom `ls -t`
+}
+
 export -f q.sys.files.find-files-greater-than-1gb
 export -f q.sys.files.remove-spaces-in-files-and-dirs-recursive
 export -f q.sys.files.remove-spaces-in-files-recursive
@@ -54,4 +62,6 @@ export -f q.sys.files.cat-without-comments
 export -f q.sys.files.duplicates-finder
 export -f q.sys.files.sync-files-from-specific-date
 export -f q.sys.files.lt
+export -f q.sys.files.eom-files
+export -f q.sys.files.rename-replace-spaces
 

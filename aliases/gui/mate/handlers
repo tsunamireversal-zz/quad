@@ -1,0 +1,7 @@
+function q.gui.open.caja() {
+  caja . 
+}
+
+alias c="q.gui.open.caja"
+
+export -f q.gui.open.caja

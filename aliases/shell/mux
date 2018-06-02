@@ -14,3 +14,4 @@
 . ~/.quad/aliases/shell/specific_debian
 . ~/.quad/apps/shell/apps
 . ~/.quad/apps/gui/apps
+. ~/.quad/aliases/gui/mate/handlers

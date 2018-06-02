@@ -27,7 +27,7 @@ cat $1  | egrep -v '^$|^#|    #'
 }
 
 function q.sys.files.rename-replace-spaces() {
-for f in *\ *; do mv "$f" "${f// /_}"; done
+for f in *\ *; do mv "$f" "${f// /_}" 2>/dev/null; done
 }
 
 function q.sys.files.duplicates-finder() {

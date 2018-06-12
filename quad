@@ -13,6 +13,7 @@ if [[ ! -d ~/.quad ]];then
 fi
 echo "set completion-query-items 0" > ~/.inputrc
 echo "set page-completions off" >> ~/.inputrc
+touch ~/.bash_profile
 if [[ "$1" == "install" ]];then
   PROFILE_ALREADY=`grep "quad\/quad" ~/.bash_profile|wc -l`
   if [[ $PROFILE_ALREADY -eq 0 ]];then
@@ -21,9 +22,9 @@ if [[ "$1" == "install" ]];then
     echo "QUAD is now installed. Log out and back into this shell to use it."
 
   else
-    q.co_green "INFO: QUAD is already available, you can start using it!"
-    q.co_green "type the keys:  <q><dot> and hit tab repeatedly"
-    q.co_purple "\nIf you see this message -> Display all 122 possibilities? (y or n)\n Just hit y key"
+    echo "INFO: QUAD is already available, you can start using it!"
+    echo "type the keys:  <q><dot> and hit tab repeatedly"
+    echo "\nIf you see this message -> Display all 122 possibilities? (y or n)\n Just hit y key"
   fi
 fi
 

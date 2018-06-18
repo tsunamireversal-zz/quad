@@ -1,2 +1,3 @@
 alias q.specific.debian.mksquashfs-pxe="mksquashfs edit/ casper/filesystem.squashfs -noappend -always-use-fragments"
+alias q.specific.debian.fixbroken="sudo apt install --fix-broken"
 

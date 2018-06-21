@@ -36,7 +36,6 @@ function q.lh() {
 ls -a | grep "^\."
 }
 
-export -f q.lh
 
 ###############################################################################
 # QUAD SYSTEM FUNCTIONS
@@ -45,4 +44,23 @@ function q.search() {
 grep -Enri "$1" `find ~/.quad -name "*"`
 }
 
+function q.list() {
+compgen -c |grep ^q\. |sort -u
+q.co_green "ALSO :"
+q.co_green "compgen -c # will list all the commands you could run."
+q.co_green "compgen -a # will list all the aliases you could run."
+q.co_green "compgen -b # will list all the built-ins you could run."
+q.co_green "compgen -k # will list all the keywords you could run."
+q.co_green "compgen -A function # will list all the functions you could run."
+q.co_green "compgen -A function -abck # will list all the above in one go."
+}
+
+
+
+
+###############################################################################
+# EXPORTS
+###############################################################################
+export -f q.list
+export -f q.lh
 export -f q.search

@@ -38,8 +38,11 @@ else
 fi
 }
 
+function q.app.packt.free-deal-of-the-day() {
+cat /tmp/packt.deal.of.the.day
+}
 
-#Hidden bash function
+#Hidden bash functions
 function _tree() {
 VAR_TREE=`which tree|wc -l`
 if [[ $VAR_TREE -eq 0 ]];then
@@ -80,6 +83,7 @@ export -f q.app.password-generator
 export -f q.app.md5sum-all-files
 export -f q.app.clone-file-timestamp
 export -f q.app.jsonify-file
+export -f q.app.packt.free-deal-of-the-day
 export -f q.show
 export -f q.l
 export -f q.ll

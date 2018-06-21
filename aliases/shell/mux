@@ -15,3 +15,6 @@
 . ~/.quad/apps/shell/apps
 . ~/.quad/apps/gui/apps
 . ~/.quad/aliases/gui/mate/handlers
+
+#PROFILES
+. ~/.quad/profiles/.profile_prompt

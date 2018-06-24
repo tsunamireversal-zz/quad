@@ -1,0 +1,11 @@
+if [[ $USER == "root" ]];then
+	USERPROMPT="# "
+else
+	USERPROMPT="$ "
+fi
+if type __git_ps1 > /dev/null 2>&1; then
+   export PS1="\[\e[1;36m\]\n \[\e[32m\] [\A] \u@\[\e[1;31m\]\h\[\e[1;32m\] \[\033[36m\]`__git_ps1`\[\033[0m\] [ \w ] $USERPROMPT ";
+else
+   export PS1="\[\e[1;36m\]\n \[\e[32m\] [\A] \u@\[\e[1;31m\]\h\[\e[1;32m\] `git branch 2>/dev/null` [ \w ]\[\033[0m\] $USERPROMPT ";
+fi
+

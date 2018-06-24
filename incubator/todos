@@ -3,7 +3,7 @@
 ###############################################################################
 
 function q.net.www.packt-show-deal-of-the-day-string() {
-curl https://www.packtpub.com/packt/offers/free-learning/|grep -A 2 "dotd-main-book-image float-left"
+curl https://www.packtpub.com/packt/offers/free-learning/|grep -A 2 "dotd-main-book-image float-left" > /tmp/packt.deal.of.the.day
 }
 
 function q.app.timer.zenity_infobox() {

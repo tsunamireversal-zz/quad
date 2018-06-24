@@ -15,6 +15,11 @@ alias q.virt.kubernetes.generate.token="q.checkbin kubeadm && kubeadm token gene
 alias q.virt.kubernetes.explain="q.checkbin kubectl && kubectl explain"
 alias q.virt.kubernetes.minikube-dashboard="q.checkbin minikube && minikube dashboard"
 
+function q.virt.kubernetes.exec-bash() {
+q.checkDOLLAR1 && q.checkbin kubectl && kubectl exec -it $1 -- /bin/bash
+}
+alias q.virt.kubernetes.pod.enter="q.virt.kubernetes.exec-bash"
+
 function q.virt.kubernetes.create.namespace() {
 q.checkDOLLAR1 $1 && q.checkbin kubectl && kubectl create namespace $1
 }
@@ -51,3 +56,4 @@ export -f q.virt.kubernetes.edit
 export -f q.virt.kubernetes.create-dashboard
 export -f q.virt.kubernetes.scale.deployment
 export -f q.virt.kubernetes.describe.pod
+export -f q.virt.kubernetes.exec-bash

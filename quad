@@ -30,7 +30,7 @@ fi
 
 if [[ "$1" == "uninstall" ]];then
     sed -i '/quad\/quad/d' ~/.bash_profile
-    q.co_orange "INFO: QUAD is now uninstalled."
+    echo "INFO: QUAD is now uninstalled."
 fi
 
 ###############################################################################

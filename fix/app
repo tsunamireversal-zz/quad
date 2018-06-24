@@ -9,5 +9,14 @@ if [[ $ALREADY -eq 0 ]];then
 fi
 }
 
+function q.fix.brokenpkgs() {
+CHECK_UB=`lsb_release -a |grep -i ubuntu|wc -l`
+if [[ $CHECK_UB -gt 0 ]];then
+  sudo apt-get install --fix-broken
+fi
+
+}
+
 export -f q.fix.thunderbird
 export -f q.fix.nvidia-huge-fonts
+export -f q.fix.brokenpkgs

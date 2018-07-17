@@ -6,6 +6,10 @@ alias q.net.ssh.keyclone='ssh-copy-id -i ~/.ssh/id_rsa.pub'
 alias q.sshk='q.net.ssh.keyclone'
 alias q.net.www.dig='co_orange "Which site?"; read SITE; dig +nocmd +noall +answer -x $SITE'
 
+function q.net.cert.show.issuer() {
+openssl s_client -connect $1:443 |& sed -n '/^issuer=/s/.*CN=//p'
+}
+
 function q.net.set.networkbits() {
   q.co_green "EX: q.net.set.networkbits 192.168.1 [to focus on this network]"
   Q_NET_BITS=$1
@@ -34,3 +38,4 @@ fi
 
 export -f q.net.ssh-backup
 export -f q.net.ssh-restore
+export -f q.net.cert.show.issuer

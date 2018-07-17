@@ -55,6 +55,11 @@ q.co_green "compgen -A function # will list all the functions you could run."
 q.co_green "compgen -A function -abck # will list all the above in one go."
 }
 
+q.sys.autologin-session-on-console.how() {
+echo "sudo apt-get install -y rungetty"
+echo "REPLACE last line of /etc/init/ttyX.conf with ->  exec /sbin/rungetty --autologin dtl tty2"
+}
+
 
 
 

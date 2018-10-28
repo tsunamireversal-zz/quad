@@ -22,7 +22,7 @@ q.checkbin md5sum && q.co_green "md5sum in progress on type $TYPE" && md5sum `fi
 
 q.app.password-generator() {
   q.checkbin dd && dd if=/dev/urandom bs=1 count=$1 2>/dev/null \
-  | base64 -w 0 | rev | cut -b 2- | rev | sed 's/+/p/'
+  | base64 -w 0 | rev | cut -b 2- | rev | sed 's/+/2/'|sed 's/\//0/g' |sed 's/=/3/g'
 }
 
 q.app.clone-file-timestamp () {

@@ -1,3 +1,3 @@
-. ~/.quad/aliases/software/docker
-. ~/.quad/aliases/software/k8s
-. ~/.quad/aliases/software/qemu
+. $QUAD_LOCATION/aliases/software/docker
+. $QUAD_LOCATION/aliases/software/k8s
+. $QUAD_LOCATION/aliases/software/qemu

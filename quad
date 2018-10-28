@@ -4,20 +4,18 @@
 # Author: Martin Levasseur [quad@impossible3d.com]
 # Date : 2018-04-30
 ###############################################################################
+export QUAD_LOCATION="~/quad"
 
 ###############################################################################
 # QUAD: INSTALLER
 ###############################################################################
-if [[ ! -d ~/.quad ]];then
-  mv ~/quad ~/.quad && cd ~/.quad 2>/dev/null
-fi
 echo "set completion-query-items 0" > ~/.inputrc
 echo "set page-completions off" >> ~/.inputrc
 touch ~/.bash_profile
 if [[ "$1" == "install" ]];then
   PROFILE_ALREADY=`grep "quad\/quad" ~/.bash_profile|wc -l`
   if [[ $PROFILE_ALREADY -eq 0 ]];then
-    echo ". ~/.quad/quad" >> ~/.bash_profile
+    echo ". $QUAD_LOCATION/quad" >> ~/.bash_profile
     echo
     echo "QUAD is now installed. Log out and back into this shell to use it."
 
@@ -71,26 +69,6 @@ fi
 export PROMPT_COMMAND='history -a'
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%F %T "
-
-###############################################################################
-# QUAD multiplexer :: routing for quad, which adds flexible modularity.
-###############################################################################
-. ~/.quad/aliases/shell/mux
-
-#Load specific shell aliases depending on user shell.
-if [[ "$SHELL" == "/bin/bash" ]];then
-  . ~/.quad/aliases/shell/bash_specific
-elif [[ "$SHELL" == "/bin/csh" ]];then
-  . ~/.quad/aliases/shell/csh_specific
-elif [[ "$SHELL" == "/bin/tcsh" ]];then
-  . ~/.quad/aliases/shell/tcsh_specific
-elif [[ "$SHELL" == "/bin/zsh" ]];then
-  . ~/.quad/aliases/shell/zsh_specific
-fi
-
-#QUAD software awareness
-. ~/.quad/aliases/software/mux
-
 
 ###############################################################################
 # QUAD's CUTE OUTPUT SO IT'S AVAILABLE TO ALL SUBSEQUENT CODE.

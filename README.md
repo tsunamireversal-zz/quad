@@ -65,14 +65,14 @@ No need to have root/superuser (admin) status to install it.
 [Will leave QUAD in your system but will disable it on your next shell open]
 
 ## REMOVAL
-Uninstall first [See above], then just remove the ~/quad and remove the link
+Uninstall first [See above], then just remove the $QUAD_LOCATION and remove the link
 ~/.quad from your system; it's that easy. It does not leave files in the
 operating system.
 
 ## UPGRADING
 just update the repo using:
 ```
-  $ cd ~/quad && git pull && q   <---> (or download the repo again on github)
+  $ cd $QUAD_LOCATION && git pull && q   <---> (or download the repo again on github)
 ```
 NOTE: q command in the end will reload quad with new features.
 

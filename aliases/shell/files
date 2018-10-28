@@ -21,6 +21,12 @@ read INODE_NB
 find . -inum $INODE_NB -exec rm -i {} \;
 }
 
+function q.sys.files.rename-files-with-spaces() {
+echo "YOU ARE ABOUT TO RENAME ALL FILES HERE TO REMOVE THEIR SPACES!"
+echo " ARE U SURE? if not --- hit CTRL-C now!!!"
+read bla
+find $1 -name "* *.*" -type f -print0 | while read -d $'\0' f; do mv -v "$f" "${f// /_}"; done
+}
 
 function q.sys.files.cat-without-comments() {
 cat $1  | egrep -v '^$|^#|    #'
@@ -29,6 +35,15 @@ cat $1  | egrep -v '^$|^#|    #'
 function q.sys.files.rename-replace-spaces() {
 for f in *\ *; do mv "$f" "${f// /_}" 2>/dev/null; done
 }
+
+function q.sys.files.cat-only-valid-lines() {
+ cat $1 |grep -v "^\["|grep -v '^$'|grep -v '^#'
+}
+function cat-only-valid-lines() {
+ cat $1 |grep -v "^\["|grep -v '^$'|grep -v '^#'
+}
+export -f cat-only-valid-lines
+export -f q.sys.files.cat-only-valid-lines
 
 function q.sys.files.duplicates-finder() {
 find . -type f -printf '%p/ %f\n' | sort -k2 | uniq -f1 --all-repeated=separate
@@ -64,4 +79,3 @@ export -f q.sys.files.sync-files-from-specific-date
 export -f q.sys.files.lt
 export -f q.sys.files.eom-files
 export -f q.sys.files.rename-replace-spaces
-

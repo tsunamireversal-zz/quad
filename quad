@@ -13,9 +13,9 @@ echo "set completion-query-items 0" > ~/.inputrc
 echo "set page-completions off" >> ~/.inputrc
 touch ~/.bash_profile
 if [[ "$1" == "install" ]];then
-  PROFILE_ALREADY=`grep "quad\/quad" ~/.bash_profile|wc -l`
+  PROFILE_ALREADY=`grep "quad\/quad" ~/.bashrc|wc -l`
   if [[ $PROFILE_ALREADY -eq 0 ]];then
-    echo ". $QUAD_LOCATION/quad" >> ~/.bash_profile
+    echo ". $QUAD_LOCATION/quad" >> ~/.bashrc
     echo
     echo "QUAD is now installed. Log out and back into this shell to use it."
 
@@ -27,7 +27,8 @@ if [[ "$1" == "install" ]];then
 fi
 
 if [[ "$1" == "uninstall" ]];then
-    sed -i '/quad\/quad/d' ~/.bash_profile
+    sed -i '/quad\/quad/d' ~/.bashrc
+    rm ~/.quad_state
     echo "INFO: QUAD is now uninstalled."
 fi
 
@@ -128,5 +129,9 @@ set smartcase
 set ruler
 EOF
 fi
+
+cat > ~/.quad_state <<EOF
+ENABLED
+EOF
 
 logger "QUAD session loaded for $USER"

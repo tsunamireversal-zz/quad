@@ -1,0 +1,2 @@
+#!/bin/bash
+git remote set-url origin git+ssh://git@github.com/tsunamireversal/quad.git

@@ -1,3 +1,0 @@
-. $QUAD_LOCATION/aliases/software/docker
-. $QUAD_LOCATION/aliases/software/k8s
-. $QUAD_LOCATION/aliases/software/qemu

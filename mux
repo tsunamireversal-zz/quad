@@ -1,0 +1,37 @@
+. quad_features_error_handling
+. quad_features_quick
+
+. aliases_shell_colors
+. aliases_shell_sys
+. aliases_shell_forceload
+. aliases_shell_files
+. aliases_shell_dirs
+. aliases_shell_net
+. aliases_shell_hw
+. aliases_shell_common_mistakes
+. aliases_shell_forceload
+. aliases_shell_obsolete
+. aliases_shell_translations
+. aliases_shell_specific_debian
+. aliases_software_docker
+. aliases_software_k8s
+. aliases_software_qemu
+
+#Load specific shell aliases depending on user shell.
+if [[ "$SHELL" == "/bin/bash" ]];then
+  source aliases_shell_bash_specific
+elif [[ "$SHELL" == "/bin/csh" ]];then
+  source aliases_shell_csh_specific
+elif [[ "$SHELL" == "/bin/tcsh" ]];then
+  source aliases_shell_tcsh_specific
+elif [[ "$SHELL" == "/bin/zsh" ]];then
+  source aliases_shell_zsh_specific
+fi
+
+. quick_apps
+. quick_apps_fixes
+
+#PROFILES
+. ~/.profile_$USER
+#.profile_prompt
+

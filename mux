@@ -35,3 +35,7 @@ fi
 . ~/.profile_$USER
 #.profile_prompt
 
+. gui_ecomorph
+. gui_gnome_buttons
+. gui_mate_handlers
+. gui_xorg

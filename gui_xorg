@@ -1,7 +1,7 @@
 
 if [[ ! -z "$DISPLAY" ]];then
 #Accelerate keyboard if we've got X running.
-  co_green "Keyboard: Accelerated!"
+#  echo "Keyboard: Accelerated!"
   xset r rate 190 35
 fi
 

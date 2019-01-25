@@ -1,41 +1,41 @@
-. quad_features_error_handling
-. quad_features_quick
+. ~/quad/quad_features_error_handling
+. ~/quad/quad_features_quick
 
-. aliases_shell_colors
-. aliases_shell_sys
-. aliases_shell_forceload
-. aliases_shell_files
-. aliases_shell_dirs
-. aliases_shell_net
-. aliases_shell_hw
-. aliases_shell_common_mistakes
-. aliases_shell_forceload
-. aliases_shell_obsolete
-. aliases_shell_translations
-. aliases_shell_specific_debian
-. aliases_software_docker
-. aliases_software_k8s
-. aliases_software_qemu
+. ~/quad/aliases_shell_colors
+. ~/quad/aliases_shell_sys
+. ~/quad/aliases_shell_forceload
+. ~/quad/aliases_shell_files
+. ~/quad/aliases_shell_dirs
+. ~/quad/aliases_shell_net
+. ~/quad/aliases_shell_hw
+. ~/quad/aliases_shell_common_mistakes
+. ~/quad/aliases_shell_forceload
+. ~/quad/aliases_shell_obsolete
+. ~/quad/aliases_shell_translations
+. ~/quad/aliases_shell_specific_debian
+. ~/quad/aliases_software_docker
+. ~/quad/aliases_software_k8s
+. ~/quad/aliases_software_qemu
 
 #Load specific shell aliases depending on user shell.
 if [[ "$SHELL" == "/bin/bash" ]];then
-  source aliases_shell_bash_specific
+  source ~/quad/aliases_shell_bash_specific
 elif [[ "$SHELL" == "/bin/csh" ]];then
-  source aliases_shell_csh_specific
+  source ~/quad/aliases_shell_csh_specific
 elif [[ "$SHELL" == "/bin/tcsh" ]];then
-  source aliases_shell_tcsh_specific
+  source ~/quad/aliases_shell_tcsh_specific
 elif [[ "$SHELL" == "/bin/zsh" ]];then
-  source aliases_shell_zsh_specific
+  source ~/quad/aliases_shell_zsh_specific
 fi
 
-. quick_apps
-. quick_apps_fixes
+. ~/quad/quick_apps
+. ~/quad/quick_apps_fixes
 
 #PROFILES
 . ~/.profile_$USER
 #.profile_prompt
 
-. gui_ecomorph
-. gui_gnome_buttons
-. gui_mate_handlers
-. gui_xorg
+. ~/quad/gui_ecomorph
+. ~/quad/gui_gnome_buttons
+. ~/quad/gui_mate_handlers
+. ~/quad/gui_xorg

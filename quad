@@ -135,4 +135,4 @@ ENABLED
 EOF
 
 logger "QUAD session loaded for $USER"
-. mux 
+. ~/quad/mux 
